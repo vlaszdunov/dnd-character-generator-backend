@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: dnd_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    expose:
+      - "5432"

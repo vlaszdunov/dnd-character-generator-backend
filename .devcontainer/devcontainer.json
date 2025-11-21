@@ -1,0 +1,20 @@
+{
+  "name": "DND character generator (backend)",
+  "forwardPorts": [3003],
+  "dockerComposeFile": "docker-compose-dev.yaml",
+  "service": "app",
+  "workspaceFolder": "/application",
+  "portsAttributes": {
+    "3003": {
+      "label": "Application"
+    }
+  },
+  "postStartCommand": "uv sync",
+
+
+  "customizations" : {
+    "jetbrains": {
+      "backend": "PyCharm"
+    }
+  }
+}

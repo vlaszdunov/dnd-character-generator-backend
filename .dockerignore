@@ -1,0 +1,26 @@
+#Byte-compiled
+__pycache__/
+
+# Git
+.git/
+
+#Environment
+.venv/
+.env
+venv/
+
+# Build
+build/
+dist/
+*.manifest
+*.spec
+
+# Tests
+.pytest_cache/
+
+# IDE-staff
+*.iws
+.idea/
+
+#linter
+.ruff_cache/
