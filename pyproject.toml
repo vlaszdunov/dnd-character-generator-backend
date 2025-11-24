@@ -3,4 +3,49 @@ name = "dnd-character-generator-backend"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "alembic>=1.17.2",
+    "asyncpg>=0.30.0",
+    "fastapi>=0.121.3",
+    "pydantic>=2.12.4",
+    "pydantic-settings>=2.12.0",
+    "sqlalchemy[asyncio]>=2.0.44",
+    "uvicorn>=0.38.0",
+]
+
+[dependency-groups]
+dev = [
+    "alembic>=1.17.2",
+    {include-group="lint"}
+]
+lint = [
+    "ruff>=0.14.6",
+    "ty>=0.0.1a27",
+]
+
+[tool.ruff]
+indent-width = 4
+line-length = 120
+output-format = "grouped"
+src = ["app"]
+target-version = "py314"
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+indent-style = "space"
+line-ending = "auto"
+skip-magic-trailing-comma = false
+
+
+[tool.alembic]
+script_location = "%(here)s/alembic"
+prepend_sys_path = [
+    "."
+]
+
+[[tool.alembic.post_write_hooks]]
+name = "ruff"
+type = "exec"
+executable = "ruff"
+options = "format REVISION_SCRIPT_FILENAME"

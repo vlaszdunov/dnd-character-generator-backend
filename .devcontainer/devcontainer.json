@@ -4,6 +4,7 @@
   "dockerComposeFile": "docker-compose-dev.yaml",
   "service": "app",
   "workspaceFolder": "/application",
+  "shutdownAction": "stopCompose",
   "portsAttributes": {
     "3003": {
       "label": "Application"
